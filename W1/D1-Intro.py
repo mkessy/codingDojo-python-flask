@@ -190,3 +190,53 @@ if (x == y and x is z or x == y x is not z):
     more cool stuff
 
 '''
+
+
+# ***********************************************************************************
+'''
+1. How many ways can you see (at this moment) where python is different than JavaScript in it's syntax?
+    - string interpolation 
+    - indenation instead of { }
+    - using : instead of { }
+    - comments
+    - print vs console.log
+    - arrays vs list || obj vs dictionaries
+    - elif vs else if
+
+2. What dataTypes did we cover and what are their indicators (what tells you that they are that dataType)?
+    - string " "
+    - list [ ]
+    - dict { }
+    - tuples ( )
+    - bool True False
+    - Numbers 
+    - sets
+
+3. What is the difference between a float and an int?
+    - int = whole number
+    - float = dec. 
+4. What is an f-string (what does it allow us to do)? and what is it's indicator?
+    - string interpolation -> access var inside a string
+    - f in front of first " and the var name is inside { }
+5. Name one thing that is unique to a list?
+    - modify context by index
+    - index based 
+6. Explain why getting data from a list could be slower than getting data from a dictionary?
+
+7. What is a conditional? How to use them?
+    - if else 
+    - logic
+    - <= and or not != 
+8. Explain how
+for key in all_keys:
+    print(key)
+
+is different from
+
+for num in range(len(all_keys)):
+    print(num)
+'''
+
+# name = input("what is your name?")
+# print(f"your name is {name}")
+
