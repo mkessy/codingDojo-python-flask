@@ -1,0 +1,10 @@
+.green{
+    color: green;
+}
+.red {
+    color: red;
+}
+.activities {
+    height: 200px;
+    overflow-y: scroll;
+}

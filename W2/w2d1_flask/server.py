@@ -11,7 +11,7 @@ def hello_world():
 @app.route('/process', methods=['POST'])          # The "@" decorator associates this route with the function immediately following
 def process():
     # name = request.form['name']
-    session['uuid'] = request.form['name']
+    session['uuid'] = request.form['uuid']
     # return render_template('processData.html', name=name)
     return redirect('/success')
 
@@ -24,7 +24,15 @@ def success():
     uuid = session['uuid']
     return render_template('processData.html', uuid=uuid)
 
+@app.route('/page2/<int:uuid>', methods=['POST'])
+def page2(uuid):
+    # hiddenInput = request.form['hiddenInput']
 
+    return redirect('/display_page2')
+
+@app.route('/display_page2')
+def display_page2():
+    return render_template('page2.html')
 
 
 
