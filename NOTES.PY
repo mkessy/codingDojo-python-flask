@@ -33,4 +33,5 @@ have all forms go to "/process_money"
 reset button that goes to "/reset"
 show all previous activities (will be recieved as a list)
 BONUS have activities color coded (red if lost money, green if gained)
+
 '''
