@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+
+<body>
+    <h1>Index page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Job</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in all_users %}
+            <tr>
+                <td><a href="/user/{{user.id}}/edit">{{user.first_name}}</a></td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.occupation}}</td>
+                <td><a href="user/{{user.id}}/delete">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/user/create" method="post">
+        <fieldset>
+            <legend>
+                <label for="first_name">First Name:</label>
+            </legend>
+                <input type="text" name="first_name">
+        </fieldset>
+        <fieldset>
+            <legend>
+                <label for="last_name">Last Name:</label>
+            </legend>
+            <input type="text" name="last_name">
+        </fieldset>
+        <fieldset>
+            <legend>
+                <label for="occupation">Occupation:</label>
+            </legend>
+            <input type="text" name="occupation">
+        </fieldset>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
