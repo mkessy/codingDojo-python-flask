@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    text-align: center;
+}
+.content {
+    margin: 0 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table th, td {
+    padding: 0.2em;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
