@@ -1,0 +1,19 @@
+body {
+    background-color: rebeccapurple;
+}
+
+.content {
+    margin: 0 2em;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+table th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}

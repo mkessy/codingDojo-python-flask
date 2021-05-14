@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Index</title>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Index Page</h1>
+        <a href="/toys/all"><button>Get Dog toys</button></a>
+    </div>
+    <div class="content bg-white">
+        <div class="left_side">
+            <h2>Dogs</h2>
+            <!-- display all here -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dog in context.all_dogs %}
+                    <tr>
+                        <td>{{dog.name}}</td>
+                        <td>{{dog.type}}</td>
+                        <td><a href="/dog/{{dog.id}}/show">View</a> | delete</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <form action="/dog/create" method="post">
+                <fieldset>
+                    <legend>
+                        <label for="name">Name</label>
+                    </legend>
+                    <input type="text" name="name">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="type">Type</label>
+                    </legend>
+                    <input type="text" name="type">
+                </fieldset>
+                <button>Create Dog</button>
+            </form>
+        </div>
+        <div class="right_side">
+            <h2>Collars</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Color</th>
+                        <th>Material</th>
+                        <th>Dog</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for collar in context.all_collars_with_dogs %}
+                    <tr>
+                        <td>{{collar['name']}}</td>
+                        <td>{{collar['color']}}</td>
+                        <td>{{collar['material']}}</td>
+                        <td>{{collar['dogs.name']}}</td>
+                        <td>View | delete</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <form action="/collar/create" method="post">
+                <fieldset>
+                    <legend>
+                        <label for="name">Name</label>
+                    </legend>
+                    <input type="text" name="name">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="color">Color</label>
+                    </legend>
+                    <input type="text" name="color">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="material">Material</label>
+                    </legend>
+                    <input type="text" name="material">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="dog_id">Dog</label>
+                    </legend>
+                    <select name="dog_id">
+                        {% for dog in all_dogs %}
+                        <option value="{{dog.id}}">{{dog.name}}</option>
+                        {% endfor  %}
+                    </select>
+                </fieldset>
+                <button>Create Dog</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

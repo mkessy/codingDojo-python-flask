@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Dog</h1>
+    <a href="/"><button>Go Home</button></a>
+    <p> Name: {{dog[0].name}} </p>
+    <p> Type: {{dog[0].type}}</p>
+    <h3>All Collars</h3>
+    <ul>
+        {% for collar in dog %}
+        <li>{{collar['collars.name']}}</li>
+        {% endfor %}
+    </ul>
+    <h3>All Toys</h3>
+    <ul>
+        {% for toy in dog_toys %}
+        <li>{{toy.name}} <a href="/dog/{{dog[0].id}}/{{toy.id}}/delete">Remove</a></li>
+        {% endfor %}
+    </ul>
+
+    {{all_toys}}
+    {% for toy in all_toys %}
+        <p>Toy: {{toy}}</p>
+    {% endfor %}
+
+    {% for dog_toy in dog_toys %}
+        <p>dog toy: {{dog_toy}}</p>
+    {% endfor %}
+
+    <h3>Add Toy</h3>
+    <form action="/dog/{{dog[0].id}}/toy/new" method="post">
+        <fieldset>
+            <legend>
+                <label for="toy_id">Toy</label>
+            </legend>
+            <select name="toy_id">
+                {% for toy in all_toys %}
+                <option value="{{toy.id}}">{{toy.name}}</option>
+                {% endfor %}
+            </select>
+        </fieldset>
+        <button>Add Toy</button>
+    </form>
+</body>
+
+</html>

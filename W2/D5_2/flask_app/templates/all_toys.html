@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Toys</h1>
+    <a href="/"><button>Go Home</button></a>
+    {% for toy in all_toys %}
+        <p>{{toy.name}}</p>
+    {% endfor %}
+    <form action="/toy/create" method="post">
+    <fieldset>
+        <legend>
+            <label for="name">Name</label>
+        </legend>
+        <input type="text" name="name">
+    </fieldset>
+    <button>Submit</button>
+    </form>
+</body>
+</html>
