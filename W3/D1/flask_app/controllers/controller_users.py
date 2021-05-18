@@ -1,6 +1,9 @@
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.model_users import User
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt(app)
 
 @app.route('/user/create', methods=['POST'])
 def create_user():
@@ -11,16 +14,25 @@ def create_user():
         if len(list_of_users) > 0:
             flash("email already exists")
             return redirect('/')
+        '''
+        Working with Bcrypt:
+        1. bcrypt.generate_password_hash(password_string)
+
+        2. bcrypt.check_password_hash(hashed_password, password_string)
+        '''
+        pw_hash = bcrypt.generate_password_hash(request.form['pw'])
+
+        print(pw_hash)
 
         info = {
             "first_name": request.form['first_name'],
             "last_name": request.form['last_name'],
             "email": request.form['email'],
-            "pw": request.form['pw'],
+            "pw_hash": pw_hash,
         }
         new_user = User.new(info)
         print(new_user)
-        session['uuid'] = new_user['id']
+        session['uuid'] = new_user[0]['id']
         return redirect('/dashboard')
     else:
         return redirect('/')
@@ -41,7 +53,7 @@ def login_user():
     else:
         print("email found")
         user = list_of_users[0]
-        if request.form['pw'] == user['pw']:
+        if bcrypt.check_password_hash(user['pw_hash'], request.form['pw']):
             session['uuid'] = user['id']
             return redirect('/dashboard')
     
