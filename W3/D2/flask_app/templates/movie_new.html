@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Login Or Register</title>
+</head>
+
+<body>
+    <div class="title">
+        <span></span>
+        <h1>Movies and Reviews</h1>
+        <button>Go Home</button>
+    </div>
+    <div class="content">
+        <form action="/movie/create" method="POST">
+            <fieldset>
+                <legend>
+                    <label for="title">Title</label>
+                </legend>
+                <input type="text" name="title">
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <label for="year_released">Year</label>
+                </legend>
+                <input type="date" name="year_released">
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <label for="rating">Rating</label>
+                </legend>
+                <input type="number" name="rating">
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <label for="synopsis">Synopsis</label>
+                </legend>
+                <input type="text" name="synopsis">
+            </fieldset>
+            <button>Create Movie</button>
+        </form>
+        <div class="error-msg">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith%}
+        </div>
+    </div>
+</body>
+
+</html>

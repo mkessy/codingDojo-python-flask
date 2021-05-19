@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Login Or Register</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Movies and Reviews</h1>
+    </div>
+    <div class="content">
+
+        <form action="" method="POST">
+            <fieldset>
+                <legend>
+                    <label for="email">Email</label>
+                </legend>
+                <input type="text" name="email">
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <label for="pw">Password</label>
+                </legend>
+                <input type="text" name="pw">
+            </fieldset>
+            <div class="btn-group">
+                <a href="/register">Register</a>
+                <button>Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

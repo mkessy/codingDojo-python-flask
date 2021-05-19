@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title {
+    padding: 0 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3em;
+    background-color: rgb(30, 30, 136);
+    color: wheat;
+}
+
+.content {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50vw;
+}
+
+table th, td{
+    border-collapse: collapse;
+    border: 1px solid black;
+}

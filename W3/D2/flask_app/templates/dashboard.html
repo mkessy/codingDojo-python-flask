@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Login Or Register</title>
+</head>
+<body>
+    <div class="title">
+        <p>Hello {{logged_in_user['first_name']}}</p>
+        <h1>Movies</h1>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+    <div class="content">
+        <a href="/movie/new"><button>Add Movie</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movie in all_movies %}
+                    <tr>
+                        <td>{{movie.title}} - {{movie.year_released}}</td>
+                        <td>{{movie.rating}}/5</td>
+                        <td>
+                            <a href="/movie/{{movie.id}}/view">View</a> 
+                            {% if movie.user_id == logged_in_user.id %}
+                                | <a href="/movie/{{movie.id}}/edit">Edit</a>
+                                | <a href="/movie/{{movie.id}}/delete">Delete</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor  %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

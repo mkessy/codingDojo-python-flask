@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Update {{movie.title}}</h1>
+        <a href="/"><button>Go Home</button></a>
+    </div>
+    <div class="content">
+        <form action="/movie/{{movie.id}}/update" method="post">
+        <fieldset>
+            <legend>
+                <label for="title">Title</label>
+            </legend>
+            <input type="text" name="title" value="{{movie.title}}">
+        </fieldset>
+        <fieldset>
+            <legend>
+                <label for="year_released">Year Released</label>
+            </legend>
+            <input type="date" name="year_released" value={{movie.year_released}}>
+        </fieldset>
+        <fieldset>
+            <legend>
+                <label for="rating">Rating</label>
+            </legend>
+            <input type="text" name="rating" value="{{movie.rating}}">
+        </fieldset>
+        <fieldset>
+            <legend>
+                <label for="synopsis">Synopsis</label>
+            </legend>
+            <textarea name="synopsis" id="" cols="30" rows="10">
+                {{movie.synopsis}}
+            </textarea>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="male" data-is_checked="{{movie.gender}}" checked>
+            <label for="female">female</label>
+            <input type="radio" name="gender" value="female" data-is_checked="male"> 
+        </fieldset>
+        <button>Update</button>
+        </form>
+    </div>
+</body>
+</html>
