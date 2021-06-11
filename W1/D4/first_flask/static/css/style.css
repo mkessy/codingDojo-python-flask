@@ -1,0 +1,30 @@
+.body-wrapper {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box {
+    width:250px
+  
+  }
+
+.box2 {
+    overflow:scroll;
+    height:300px;
+    /* width: 800px; */
+    border: 1px solid black;
+  }
+
+nav {
+  display:flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.displayGold {
+  padding: 0.5rem;
+  border: 2px black solid;
+  margin-left: 1rem;
+}

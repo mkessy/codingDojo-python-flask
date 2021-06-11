@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <title>Index Page</title>
+    <style>
+        .box {
+            background: {{color}};
+        }
+    </style>
 </head>
 <body>
     <h1>Index</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis nesciunt id ratione quisquam. Optio at ab ducimus a error odit, laborum soluta autem doloribus veniam earum asperiores assumenda fugit magnam.</p>
+    <div class="box">
+        <p>name: {{session['name']}}</p>
+        <p>number: {{session['number']}}</p>
+        <p>age: {{session['age']}}</p>
+        <p>ssn: {{session['ssn']}}</p>
+        {% if 'name' in session %}
+        <a href="/clear_session">Clear Session</a>
+        {% endif %}
+    </div>
+    <h3>SSN</h3>
+    <form action="/display_data" method="POST">
+        <input type="hidden" name="uuid" value="{{session['uuid']}}">
+        <input type="text" name="ssn">
+        <button>Submit</button>
+    </form>
 </body>
 </html>

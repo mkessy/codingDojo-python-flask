@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Dojo Gold</title>
+</head>
+
+<body>
+    <nav>
+        <div class="topLeft">
+            <p>Your Gold:<span class="displayGold">{{session['user_gold']}}</span></p>
+
+            <div class="row">
+                <div class="topRight">
+                    <a href="/reset"><button>Reset</button></a>
+                </div>
+                <nav>
+
+                    <div class="body-wrapper">
+                        <!-- Farm Card -->
+                        <form action="/process_money" method="POST">
+                                <div class="box">
+                                    <input type="hidden" name="location" value="farm">
+                                    <h3> Farm </h3>
+                                    <p>(earns 10-20 golds)</p>
+                                    <button>Find Gold</button>
+                                </div>
+                        </form>
+
+                        <!-- Cave Card -->
+                        <form action="/process_money" method="POST">
+                            <div class="box">
+                                <input type="hidden" name="location" value="cave">
+                                <h3> Cave </h3>
+                                <p>(earns 5-10 golds)
+                                    <button>Find Gold!</button>
+                            </div>
+                        </form>
+
+                        <!-- House Card -->
+                        <form action="/process_money" method="POST">
+                            <div class="box">
+                                <input type="hidden" name="location" value="house">
+                                <h3> House </h3>
+                                <p>(earns 2-5 golds)</p>
+                                <button>Find Gold!</button>
+                            </div>
+                        </form>
+
+                        <!-- Casino Card -->
+                        <form action="/process_money" method="POST">
+                            <div class="box">
+                                <input type="hidden" name="location" value="casino">
+                                <h3> Casino </h3>
+                                <p>(earns/takes 0-50 golds)</p>
+                                <button>Find Gold!</button>
+                            </div>
+                    </div>
+                    </form>
+
+            </div>
+
+            <section id="bottom">
+                <p>Activities</p>
+                <div class="box2">
+                    <ul>
+                        {% for entry in session['activity'] | reverse %}
+                        <li>{{entry | safe}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </section>
+</body>
+
+</html>
