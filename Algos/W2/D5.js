@@ -39,7 +39,38 @@ const expected6 = true
  * @param {string} s2
  * @returns {boolean} Whether s1 and s2 are anagrams.
  */
-function isAnagram(s1, s2) {}
+ function isAnagram(s1, s2) {
+    let charDict1 = {};
+    let charDict2 = {};
+
+    if(s1.length != s2.length) return false;
+
+    for(let i = 0; i<s1.length; i++) {
+        let char1 = s1[i].toLowerCase();
+        let char2 = s2[i].toLowerCase();
+
+        if(!(char1 in charDict1)) {
+            charDict1[char1] = 1;
+        }
+        else {
+            charDict1[char1]++;
+        }
+
+        if(!(char2 in charDict2)) {
+            charDict2[char2] = 1;
+        }
+        else {
+            charDict2[char2]++;
+        }
+    }
+    //console.log(charDict1, charDict2);
+
+    for(let k of Object.keys(charDict1)) {
+        if(!(charDict1[k] == charDict2[k])) return false;
+    }
+
+    return true;
+}
 
 
 // *********************************************************************
@@ -72,4 +103,37 @@ const Bexpected4 = "hello   world";
  *    stripped.
  */
 
-function trim(str) {}
+function trim(str) {
+    let startIdx = 0
+    let endIdx = str.length - 1
+
+    while (str[startIdx] == false){
+        startIdx++
+    }
+
+    while (str[endIdx] == false){
+        endIdx--
+    }
+    // let newStr = ""
+    // for (let i=startIdx; i<endIdx; i++){
+    //     newStr += str[i]
+    // }
+    // return newStr
+    return str.slice(startIdx, endIdx + 1)
+}
+
+function trim2(str) {
+
+    let front = 0;
+    let back = str.length - 1;
+
+    do {
+        if(str[front] == " ") front++;
+        if(str[back] == " ") back--;
+
+    } while(str[front] == " " || str[back] == " ")
+
+    console.log(front, back);
+    return str.slice(front, back+1);
+
+}

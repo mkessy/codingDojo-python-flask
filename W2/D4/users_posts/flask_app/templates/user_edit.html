@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{user['first_name']}} {{user['last_name']}}</h1>
+    <a href="/user/delete"><button>Delete User</button></a>
+    <form action="/user/update" method="post">
+        <fieldset>
+            <legend>
+                <label for="first_name">First Name</label>
+            </legend>
+            <input type="text" name="first_name" value="{{user['first_name']}}">
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <label for="last_name">Last Name</label>
+            </legend>
+            <input type="text" name="last_name" value="{{user['last_name']}}">
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <label for="email">Email</label>
+            </legend>
+            <input type="text" name="email" value="{{user['email']}}">
+        </fieldset>
+        
+        <fieldset>
+            <legend>
+                <label for="username">Username</label>
+            </legend>
+            <input type="text" name="username" value="{{user['username']}}">
+        </fieldset>
+        <button>Update</button>
+    </form>
+
+</body>
+</html>

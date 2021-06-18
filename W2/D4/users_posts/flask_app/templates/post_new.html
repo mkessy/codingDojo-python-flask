@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>New Post</h1>
+    <form action="/post/create" method="post">
+        
+        <fieldset>
+            <legend>
+                <label for="title">Title</label>
+            </legend>
+            <input type="text" name="title">
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <label for="content">Content</label>
+            </legend>
+            <textarea name="content" cols="30" rows="10"></textarea>
+        </fieldset>
+        <button>Create Post</button>
+    </form>
+</body>
+</html>

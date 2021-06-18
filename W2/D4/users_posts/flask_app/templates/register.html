@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>users and posts</title>
+    </head>
+<body>
+    <h1>Register</h1>
+    <form action="/user/create" method="post">
+
+        <fieldset>
+            <legend>
+                <label for="first_name">First Name</label>
+            </legend>
+            <input type="text" name="first_name">
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <label for="last_name">Last Name</label>
+            </legend>
+            <input type="text" name="last_name">
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <label for="email">Email</label>
+            </legend>
+            <input type="text" name="email">
+        </fieldset>
+        
+        <fieldset>
+            <legend>
+                <label for="username">Username</label>
+            </legend>
+            <input type="text" name="username">
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <label for="pw">Password</label>
+            </legend>
+            <input type="text" name="pw">
+        </fieldset>
+
+        <!-- <fieldset>
+            <legend>
+                <label for="confirm_pw">Confirm Password</label>
+            </legend>
+            <input type="text" name="confirm_pw">
+        </fieldset> -->
+        Need to <a href="/login">Login</a>
+        <button>Create</button>
+    </form>
+</body>
+</html>

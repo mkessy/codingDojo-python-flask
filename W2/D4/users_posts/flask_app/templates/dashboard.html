@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/framework.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>users and posts</title>
+</head>
+<body>
+    <h1>Welcome {{user['username']}}</h1>
+    <a href="/user/edit"><button>Settings</button></a>
+    <a href="/logout"><button>Logout</button></a>
+
+    <div class="feed dflex-col align-center">
+        <a href="/post/new"><button>+ Post</button></a>
+
+        {% for post in all_posts %}
+            <div class="post-box">
+                <div class="title dflex justify-between">
+                    <h1>{{post['title']}}</h1>
+                    <span>{{post.created_at}}</span>
+                </div>
+                <h2>{{post.user.username}}</h2>
+                <p>{{post['content']}}</p>
+                {% if post['user_id'] == session['uuid'] %}
+                <a href="/post/{{post['id']}}/edit"><button>Edit</button></a>
+                <a href="/post/{{post['id']}}/delete"><button>Delete</button></a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
